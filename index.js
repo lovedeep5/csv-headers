@@ -1,11 +1,13 @@
 const express = require("express");
 const multer = require("multer");
 const csv = require("fast-csv");
+var cors = require("cors");
 const { Readable } = require("stream");
 require("dotenv").config(); // Load environment variables from a .env file
 
 const app = express();
 const upload = multer();
+app.use(cors());
 
 // Middleware to check the auth token
 const authenticate = (req, res, next) => {
